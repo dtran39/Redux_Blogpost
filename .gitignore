@@ -1,1 +1,3 @@
 node_modules
+# macbook file
+.DS_Store
