@@ -1,0 +1,31 @@
+1. Intro
+2. Ecosystem overview:
+3. Firebase schema
+4. Redux Schema
+5. Redux intro: 101
+6. Redux actions: with POJOS
+7. Reducers: Transforming state
+8. Up and running React
+9. Adding router
+10. Improving experience: adding redux, production build
+11. Home route: css modules
+12. Authentication mocks
+13. Connecting first component with redux and react:
+14. Redux thunks: Asycn actions
+15. Route protection
+16. Authentication with firebase:
+17. Developer tooling with redux
+18. Combine reducers: apply to post modal
+19. Saving data to firebase in redux: persisting posts
+20. Redux listeners module
+21. Firebase listener
+22. Better redux architecting:
+23. Merging normalized data: Managing normalized data
+24. UI
+25. Fetch Initial data
+-- UI stuff: just copy styling code (no need to follow)
+26. Profile UI
+27. Details UI
+28. Creating replies
+29. URL state in redux
+30. Immutable.js
