@@ -1,0 +1,33 @@
+1. Hello world
+  - What to install in order to run:
+      react and react dom
+  - Additional package to install in order to develop
+      babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0
+      css-loader html-webpack-plugin style-loader
+      webpack webpack-dev-server
+  - .babelrc
+  - webpack.config.js
+  - app directory: index.html and index.js
+  - 
+2. Improve webpack
+3. Basic routing
+4. Main and home styling
+5. Navigation skeleton
+6. Designing your redux state
+7. Designing your firebase schema
+8. Hooking up Redux
+9. Auth actions creators
+10. Prep for Firebase auth
+11. Firebase configuration
+12. Authentication method
+13. Authenticate
+14. /result View
+15. Auth check
+16. Redirect
+17. Modal module
+18. Modal UI
+19. Fetch decision
+20. Results UI
+21. Fetch Users Made decision
+22. Decision view
+23. Logout
