@@ -24,7 +24,8 @@
   "homepage": "https://github.com/dtran39/Redux_Blogpost#readme",
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
