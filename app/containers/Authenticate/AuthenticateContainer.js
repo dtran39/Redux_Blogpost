@@ -12,8 +12,9 @@ const AuthenticateContainer = React.createClass({
   handleAuth(){
     this.props.dispatch(userActionCreators.fetchingUser());
     auth().then((user) => {
-      console.log('Authed User ', user)
-    })
+      this.props.dispatch(userActionCreators.fetchingUserSuccess(user.uid, user, Date.now()));
+      this.props.dispatch(userActionCreators.authUser(user.uid));
+    }).catch((error) => this.props.dispatch(userActionCreators.fetchingUserFailure(error)))
   },
   render() {
     console.log('Is Fetching ', this.props.isFetching);
@@ -26,6 +27,7 @@ const AuthenticateContainer = React.createClass({
   }
 });
 function mapStateToProps(state) {
+  console.log('State ', state)
   return {
     isFetching: state.isFetching,
     error: state.error,
