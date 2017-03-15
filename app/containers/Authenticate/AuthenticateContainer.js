@@ -2,19 +2,23 @@ import React, {PropTypes} from 'react';
 import {Authenticate} from 'components';
 import auth from 'helpers/auth';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as userActionCreators from 'redux/modules/users';
-console.log(userActionCreators);
 const AuthenticateContainer = React.createClass({
     propTypes: {
       isFetching: PropTypes.bool.isRequired,
-      error: PropTypes.string.isRequired
+      error: PropTypes.string.isRequired,
+      authUser: PropTypes.func.isRequired,
+      fetchingUser:  PropTypes.func.isRequired,
+      fetchingUserFailure:  PropTypes.func.isRequired,
+      fetchingUserSuccess:  PropTypes.func.isRequired,
     },
   handleAuth(){
-    this.props.dispatch(userActionCreators.fetchingUser());
+    this.props.fetchingUser();
     auth().then((user) => {
-      this.props.dispatch(userActionCreators.fetchingUserSuccess(user.uid, user, Date.now()));
-      this.props.dispatch(userActionCreators.authUser(user.uid));
-    }).catch((error) => this.props.dispatch(userActionCreators.fetchingUserFailure(error)))
+      this.props.fetchingUserSuccess(user.uid, user, Date.now());
+      this.props.authUser(user.uid);
+    }).catch((error) => this.props.fetchingUserFailure(error))
   },
   render() {
     console.log('Is Fetching ', this.props.isFetching);
@@ -26,11 +30,16 @@ const AuthenticateContainer = React.createClass({
     );
   }
 });
+// Specify which part of the state a specific component needs
 function mapStateToProps(state) {
-  console.log('State ', state)
+  console.log(state);
   return {
     isFetching: state.isFetching,
     error: state.error,
   }
 }
-export default connect(mapStateToProps)(AuthenticateContainer);
+// Allows us to bind dispatch to specfic userActionCreators on it (like decorator pattern)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(userActionCreators, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AuthenticateContainer);
