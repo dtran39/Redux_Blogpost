@@ -1,0 +1,3 @@
+.text {
+  composes: center from 'sharedStyles/styles.css';
+}
