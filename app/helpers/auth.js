@@ -13,3 +13,6 @@ export function checkIfAuthed(store) {
   // adding firebase later
   return store.getState().isAuthed
 }
+export function logout() {
+  console.log('Logged Out')
+}
