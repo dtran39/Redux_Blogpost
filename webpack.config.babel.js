@@ -1,3 +1,4 @@
+
 import webpack from 'webpack'
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
@@ -35,12 +36,15 @@ const base = {
   module: {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-      {test: /\.css$/, loader: 'style!css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]'}
+      {test: /\.css$/, loader: 'style-loader!css-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]'}
     ]
   },
   resolve: {
-    root: path.resolve('./app')
-  }
+      modules: [
+        path.resolve('./app'),
+        "node_modules"
+      ]
+  },
 }
 
 const developmentConfig = {
@@ -49,7 +53,6 @@ const developmentConfig = {
     contentBase: PATHS.build,
     hot: true,
     inline: true,
-    progress: true,
   },
   plugins: [HTMLWebpackPluginConfig, new webpack.HotModuleReplacementPlugin()]
 }
