@@ -73,7 +73,7 @@ const initialState = {
 export function fetchAndHandleAuthUser () {
   return function(dispatch) {
     dispatch(fetchingUser());
-    auth().then((user) => {
+    return auth().then((user) => {
       dispatch(fetchingUserSuccess(user.uid, user, Date.now()));
       dispatch(authUser(user.uid));
     }).catch((error) => dispatch(fetchingUserFailure(error)))
