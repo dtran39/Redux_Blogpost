@@ -13,7 +13,7 @@ const AuthenticateContainer = React.createClass({
     this.props.fetchAndHandleAuthUser();
   },
   render() {
-    console.log('Is Fetching ', this.props.isFetching);
+    //console.log('Is Fetching ', this.props.isFetching)//;
     return (
       <Authenticate
         isFetching={this.props.isFetching}
