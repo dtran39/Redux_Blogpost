@@ -11,6 +11,9 @@ const store = createStore(users, applyMiddleware(thunk));
 // Unauthed user when trying to accessed routes other than home and auth,
 // is redirect to auth
 function checkAuth(nextState, replace) {
+  if (store.getState().isFetching) {
+    return
+  }
   const isAuthed = checkIfAuthed(store)
   const nextPathName = nextState.location.pathname
   if (nextPathName === '/' || nextPathName === '/auth') {
