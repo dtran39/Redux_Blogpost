@@ -8,7 +8,7 @@ export function checkIfAuthed(store) {
   return store.getState().isAuthed
 }
 export function logout() {
-  return firebaseAuth().signout()
+  return firebaseAuth().signOut()
 }
 export function saveUser(user) {
   return ref.child(`users/${user.uid}`)
