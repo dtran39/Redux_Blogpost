@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import thunk from 'redux-thunk';
 import getRoutes from './config/routes'
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import users from 'redux/modules/users';
 import {checkIfAuthed} from 'helpers/auth'
-const store = createStore(users, applyMiddleware(thunk));
+const store = createStore(users, compose(
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f
+))
 // Main idea: user after authed is redirected to feed
 // Unauthed user when trying to accessed routes other than home and auth,
 // is redirect to auth
